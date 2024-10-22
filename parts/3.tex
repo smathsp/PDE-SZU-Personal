@@ -1,0 +1,104 @@
+\section{分离变量求解}
+
+
+
+\subsubsection*{题目}
+求解如下弦振动方程的混合问题：
+
+\setcounter{equation}{0}
+
+\begin{align}
+    u_{tt} - u_{xx} &= 0, \quad 0 < x < 1, \quad t \geq 0 \label{eq:1} \\
+    u|_{t=0} &= \sin\left(\frac{3}{2} \pi x\right), \quad 
+    u_t|_{t=0} = \sin\left(\frac{5}{2} \pi x\right), \quad 0 \leq x \leq 1 \label{eq:2} \\
+    u_x|_{x=0} &= 0, \quad u_x|_{x=1} = 0, \quad t \geq 0 \label{eq:3}
+\end{align}
+
+\subsubsection*{解}
+
+为了解此问题，我们采用分离变量法。将方程 \eqref{eq:1} 满足边界条件 \eqref{eq:3} 的解表示为：
+
+\begin{equation}
+    u(x, t) = X(x) T(t). \label{eq:4}
+\end{equation}
+
+将 \eqref{eq:4} 代入方程 \eqref{eq:3}，得到：
+\begin{equation}
+    \frac{X''(x)}{X(x)} = \frac{T''(t)}{T(t)} = -\lambda, \nonumber
+\end{equation}
+其中 $\lambda$ 是一个常数。于是得到：
+\begin{align}
+    X''(x) + \lambda X(x) &= 0, \label{eq:5} \\
+    T''(t) + \lambda T(t) &= 0. \label{eq:6}
+\end{align}
+
+由边界条件 \eqref{eq:3} 可知：
+\begin{equation}
+    X(0) T(t) = 0, \quad X'(1) T(t) = 0. \nonumber
+\end{equation}
+
+\begin{equation}
+X(0) = X'(1) = 0 \label{eq:7}
+\end{equation}
+
+对于 \eqref{eq:5} 和 \eqref{eq:7}，我们进行讨论：
+
+1. 当 $\lambda < 0$ 时，方程 \eqref{eq:5} 的通解为：
+   \[
+   X(x) = c_1 e^{-\sqrt{-\lambda} \, x} + c_2 e^{\sqrt{-\lambda} \, x}.
+   \]
+   代入边界条件 $c_1 = c_2 = 0$，说明此时只有平凡解。
+
+2. 当 $\lambda = 0$ 时，方程 \eqref{eq:5} 的通解为：
+   \[
+   X(x) = c_1 x + c_2.
+   \]
+   同样代入边界条件，得 $c_1 = c_2 = 0$，此时也只有平凡解。
+
+3. 当 $\lambda > 0$ 时，方程 \eqref{eq:5} 的通解为：
+   \[
+   X(x) = c_1 \cos(\sqrt{\lambda} \, x) + c_2 \sin(\sqrt{\lambda} \, x).
+   \]
+   代入边值条件可得 $c_1 = 0 \quad c_2 \cos(\sqrt{\lambda}) = 0.$
+
+   于是特征值为：
+   \[
+   \lambda_k = \left(k + \frac{1}{2}\right)^2 \pi^2, \quad k = 0, 1, 2, \dots
+   \]
+   对应的特征函数为：
+   \[
+   X_k(x) = c_k \sin\left(\left(k + \frac{1}{2}\right) \pi x\right), \quad k = 0, 1, 2, \dots
+   \]
+
+对于特征值 $\lambda_k$，解方程 \eqref{eq:6} 得：
+\[
+T_k(t) = a_k \cos\left(\left(k + \frac{1}{2}\right) \pi t\right) + b_k \sin\left(\left(k + \frac{1}{2}\right) \pi t\right),
+\]
+其中 $a_k$ 和 $b_k$ 是任意常数。于是对于任意$A_k=c_ka_k,B_k=c_kb_k$
+\[
+u_k(x, t) = \left(A_k \cos\left(\left(k + \frac{1}{2}\right) \pi t\right) + B_k \sin\left(\left(k + \frac{1}{2}\right) \pi t\right)\right) \sin\left(\left(k + \frac{1}{2}\right) \pi x\right).
+\]
+作级数
+\[
+u(x, t) = \sum_{k=1}^{\infty} \left(A_k \cos\left(\left(k + \frac{1}{2}\right) \pi t\right) + B_k \sin\left(\left(k + \frac{1}{2}\right) \pi t\right)\right) \sin\left(\left(k + \frac{1}{2}\right) \pi x\right).
+\]
+代入初值条件\eqref{eq:2}，得到：
+\[
+\sum_{k=0}^{\infty} A_k \sin\left(\left(k + \frac{1}{2}\right) \pi x\right) = \sin\left(\frac{3}{2} \pi x\right),
+\]
+\[
+\sum_{k=0}^{\infty} B_k \left(k + \frac{1}{2}\right) \pi \sin\left(\left(k + \frac{1}{2}\right) \pi x\right) = \sin\left(\frac{5}{2} \pi x\right).
+\]
+
+由此推得：
+\[
+A_0 = 0, \quad A_1 = 1, \quad A_2 = A_3 = \cdots = 0,
+\]
+\[
+B_0 = B_1 = 0, \quad B_2 = \frac{2}{5\pi}, \quad B_3 = B_4 = \cdots = 0.
+\]
+
+所以混合问题\eqref{eq:1}-\eqref{eq:3}的解为：
+\[
+u(x, t) = \cos\left(\frac{3}{2} \pi t\right) \sin\left(\frac{3}{2} \pi x\right) + \frac{2}{5\pi} \sin\left(\frac{5}{2} \pi t\right) \sin\left(\frac{5}{2} \pi x\right).
+\]
