@@ -1,0 +1,190 @@
+\section{二阶 PDE 的分类}
+
+\subsection{二阶 PDE 的一般形式}
+\[
+a u_{xx} + 2b u_{xy} + c u_{yy} + d u_x + e u_y + g u = f
+\]
+
+- \textbf{判别式}：$\Delta = b^2 - ac$
+  - \textbf{椭圆型}：$\Delta < 0$
+  - \textbf{抛物型}：$\Delta = 0$
+  - \textbf{双曲型}：$\Delta > 0$
+
+\subsection{特征曲线与特征方程}
+
+\[
+a (dy)^2 - 2b (dx)(dy) + c (dx)^2 = 0
+\]
+这是一个关于 $dy/dx$ 的二次方程。我们解这个方程得到特征曲线的斜率。特征方程的两个解为：
+\[
+\lambda_1 = \frac{b + \sqrt{b^2 - ac}}{a}, \quad \lambda_2 = \frac{b - \sqrt{b^2 - ac}}{a}
+\]
+对应的特征曲线方程为：
+\[
+y - \lambda_1 x = c_1, \quad y - \lambda_2 x = c_2
+\]
+
+- \textbf{双曲型方程}会有两个特征方向。
+- \textbf{抛物型方程}会有一个退化特征方向。
+- \textbf{椭圆型方程}没有实特征方向。
+
+\subsection{各类型二阶 PDE 的标准型}
+
+\subsubsection{椭圆型 PDE}
+\begin{itemize}
+    \item \textbf{判别式}：$\Delta = B^2 - AC < 0$  
+    \item \textbf{特征曲线}：无实特征方向。  
+    \item \textbf{第一标准型}：
+    \[
+    u_{\xi \xi} + u_{\eta \eta} = 0
+    \]
+    其中 $\xi$ 和 $\eta$ 是通过坐标变换得到的新变量。
+    \item \textbf{典型方程}：$\Delta u = 0$（拉普拉斯方程）
+\end{itemize}
+
+\subsubsection{抛物型 PDE}
+\begin{itemize}
+    \item \textbf{判别式}：$\Delta = B^2 - AC = 0$  
+    \item \textbf{特征曲线}：只有一个实特征方向。  
+    \item \textbf{第一标准型}：
+    \[
+    u_{\xi \xi} = u_{\eta}
+    \]
+    这里 $\xi$ 是特征方向。
+    \item \textbf{典型方程}：$u_t = u_{xx}$（热传导方程）
+\end{itemize}
+
+\subsubsection{双曲型 PDE}
+\begin{itemize}
+    \item \textbf{判别式}：$\Delta = B^2 - AC > 0$  
+    \item \textbf{特征曲线}：有两个实特征方向。  
+    \item \textbf{特征曲线方程}：
+    \[
+    y - \lambda_1 x = c_1, \quad y - \lambda_2 x = c_2
+    \]
+    这表明解沿两个特征方向传播。
+    \item \textbf{第一标准型}：
+    \[
+    u_{\xi \eta} = D u_{\xi} + E u_{\eta}
+    \]
+    其中 $\xi$ 和 $\eta$ 是两个特征方向。
+    \item \textbf{第二标准型}：
+    \[
+    u_{tt} - c^2 u_{xx} = 0
+    \]
+    这是双曲型 PDE 的另一种表达方式。
+    \item \textbf{典型方程}：$u_{tt} = u_{xx}$（波动方程）
+\end{itemize}
+
+\subsection{例题}
+判断以下偏微分方程的类型，并将其化为标准型
+
+\subsubsection*{题目}
+\[
+u_{xx} + u_{xy} + u_{yy} + u_x = 0
+\]
+
+\subsubsection*{解答}
+\textbf{判别类型}
+
+\[
+a = 1, \quad b = \frac{1}{2}, \quad c = 1, \quad d = 1
+\]
+
+\[
+\Delta = b^2 - ac = -\frac{3}{4}
+\]
+
+由于 $\Delta = -\frac{3}{4} < 0$，所以该方程为\textbf{椭圆型}。
+
+\textbf{特征曲线与变换}
+
+\[
+\left\{
+\begin{aligned}
+y - \left(\frac{1}{2} + \frac{\sqrt{3}}{2} i\right) x &= c_1, \\
+y - \left(\frac{1}{2} - \frac{\sqrt{3}}{2} i\right) x &= c_2
+\end{aligned}
+\right.
+\quad \Longrightarrow \quad
+\left\{
+\begin{aligned}
+\xi &= y - \frac{1}{2}x, \\
+\eta &= \frac{\sqrt{3}}{2}x
+\end{aligned}
+\right.
+\]
+
+\textbf{化为标准型}
+
+\[
+u_x = -\frac{1}{2} u_{\xi} + \frac{\sqrt{3}}{2} u_{\eta}, \quad u_y = u_{\xi}
+\]
+
+\[
+u_{xx} = \frac{1}{4} u_{\xi \xi} - \frac{\sqrt{3}}{2} u_{\xi \eta} + \frac{3}{4} u_{\eta \eta}
+\]
+
+\[
+u_{yy} = u_{\xi \xi}
+\]
+
+\[
+u_{xy} = -\frac{1}{2} u_{\xi \xi} + \frac{\sqrt{3}}{2} u_{\xi \eta}
+\]
+
+代入原方程：
+
+\[
+u_{xx} + u_{xy} + u_{yy} + u_x = 0
+\]
+化简后得到：
+\[
+u_{\xi \xi} + u_{\eta \eta} - \frac{2}{3} u_{\xi} + \frac{2}{\sqrt{3}} u_{\eta} = 0
+\]
+
+\subsubsection*{题目}
+\[
+u_{xx} - y u_{yy} = 0
+\]
+
+\subsubsection*{解答}
+
+\[
+a = 1, \quad b = 0, \quad c = -y
+\]
+
+\[
+\Delta = b^2 - ac = y
+\]
+
+分类讨论：
+
+\textbf{当 $y > 0$（双曲形）}
+
+\[
+\frac{dy}{dx} = \pm \sqrt{y}
+\]
+
+\[
+\int \frac{dy}{\sqrt{y}} = \pm \int dx \quad \Longrightarrow \quad 2\sqrt{y} = \pm x + c
+\]
+
+特征曲线
+
+\[
+\left\{
+\begin{aligned}
+2\sqrt{y} &= x + c_1, \\
+2\sqrt{y} &= -x + c_2
+\end{aligned}
+\right.
+\quad \Longrightarrow \quad
+\left\{
+\begin{aligned}
+\xi &= x + 2\sqrt{y}, \\
+\eta &= x - 2\sqrt{y}
+\end{aligned}
+\right.
+\]
+
