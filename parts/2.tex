@@ -76,72 +76,51 @@ y - \lambda_1 x = c_1, \quad y - \lambda_2 x = c_2
     \item \textbf{典型方程}：$u_{tt} = u_{xx}$（波动方程）
 \end{itemize}
 
+\subsection{解法}
+
+首先找出$a,b,c$解出$\Delta = b^2 - ac$根据$\Delta > 0$为双曲形，$\Delta = 0$为抛物形，$\Delta < 0$为椭圆形分类讨论
+
+得到$\xi \eta$后计算偏导数替换原式所有$xy$即可
+
+\subsubsection{双曲形}
+
+\[
+\pm \lambda = \frac{b \pm \sqrt{\Delta}}{a}
+\]
+
+\[
+\left\{
+\begin{aligned}
+\xi &= y - \lambda_1 x \\
+\eta &= y - \lambda_2 x
+\end{aligned}
+\right.
+\]
+
+\subsubsection{抛物形}
+
+\[
+\left\{
+\begin{aligned}
+\xi &= y - \frac{b}{a} x \\
+\eta &= y
+\end{aligned}
+\right.
+\]
+
+\subsubsection{椭圆形}
+
+\[
+\left\{
+\begin{aligned}
+\bar{\xi} &= y - \frac{b}{a} x \\
+\bar{\eta} &= -\frac{ac-b^2}{a} x
+\end{aligned}
+\right.
+\]
+
 \subsection{例题}
 判断以下偏微分方程的类型，并将其化为标准型
-
-\subsubsection*{题目}
-\[
-u_{xx} + u_{xy} + u_{yy} + u_x = 0
-\]
-
-\subsubsection*{解答}
-\textbf{判别类型}
-
-\[
-a = 1, \quad b = \frac{1}{2}, \quad c = 1, \quad d = 1
-\]
-
-\[
-\Delta = b^2 - ac = -\frac{3}{4}
-\]
-
-由于 $\Delta = -\frac{3}{4} < 0$，所以该方程为\textbf{椭圆型}。
-
-\textbf{特征曲线与变换}
-
-\[
-\left\{
-\begin{aligned}
-y - \left(\frac{1}{2} + \frac{\sqrt{3}}{2} i\right) x &= c_1, \\
-y - \left(\frac{1}{2} - \frac{\sqrt{3}}{2} i\right) x &= c_2
-\end{aligned}
-\right.
-\quad \Longrightarrow \quad
-\left\{
-\begin{aligned}
-\xi &= y - \frac{1}{2}x, \\
-\eta &= \frac{\sqrt{3}}{2}x
-\end{aligned}
-\right.
-\]
-
-\textbf{化为标准型}
-
-\[
-u_x = -\frac{1}{2} u_{\xi} + \frac{\sqrt{3}}{2} u_{\eta}, \quad u_y = u_{\xi}
-\]
-
-\[
-u_{xx} = \frac{1}{4} u_{\xi \xi} - \frac{\sqrt{3}}{2} u_{\xi \eta} + \frac{3}{4} u_{\eta \eta}
-\]
-
-\[
-u_{yy} = u_{\xi \xi}
-\]
-
-\[
-u_{xy} = -\frac{1}{2} u_{\xi \xi} + \frac{\sqrt{3}}{2} u_{\xi \eta}
-\]
-
-代入原方程：
-
-\[
-u_{xx} + u_{xy} + u_{yy} + u_x = 0
-\]
-化简后得到：
-\[
-u_{\xi \xi} + u_{\eta \eta} - \frac{2}{3} u_{\xi} + \frac{2}{\sqrt{3}} u_{\eta} = 0
-\]
 
 \subsubsection*{题目}
 \[
@@ -211,4 +190,4 @@ u_{yy} &= -\frac{1}{2} y^{- \frac{3}{2}} u_{\xi} + \frac{1}{2} y^{-\frac{3}{2}} 
 \frac{2}{\xi - \eta} (u_{\xi} - u_{\eta}) = 0
 \]
 
->未完
+\textbf{当 $y = 0$（抛物形）}
