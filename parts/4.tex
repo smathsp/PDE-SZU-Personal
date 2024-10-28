@@ -1,0 +1,48 @@
+\section{达朗贝尔公式}
+
+\subsection{非齐次波动方程的Cauchy问题}
+
+\[
+\left\{
+\begin{aligned}
+u_{tt} - a^2 u_{xx} = f(x,t), \quad x \in R , \quad t > 0, \\
+u|_{t=0} = \varphi (x), \quad u_t|_{t=0} = \psi (x), \quad x \in R.
+\end{aligned}
+\right.
+\]
+
+非齐次可以转化为齐次+非齐次
+
+\textbf{齐次}
+
+\[
+\left\{
+\begin{aligned}
+u_{tt} - a^2 u_{xx} = 0, \quad x \in R, \quad t > 0, \\
+u|_{t=0} = \varphi (x), \quad u_t|_{t=0} = \psi (x), \quad x \in R.
+\end{aligned}
+\right.
+\]
+
+\textbf{非齐次}
+
+\[
+\left\{
+\begin{aligned}
+u_{tt} - a^2 u_{xx} = f(x,t), \quad x \in R, \quad t > 0, \\
+u|_{t=0} = 0, \quad u_t|_{t=0} = 0, \quad x \in R.
+\end{aligned}
+\right.
+\]
+
+\subsubsection{齐次求解}
+
+\textbf{d'Alembert(达朗贝尔)公式}
+
+\[
+u(x, t) = \frac{1}{2} \left[ \varphi (x - at) + \varphi (x + at) \right] + \frac{1}{2a} \int_{x - at}^{x + at} \psi (\tau ) \, d\tau 
+\]
+
+\subsubsection{非齐次求解}
+
+\textbf{齐次化原理}

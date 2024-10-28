@@ -3,7 +3,7 @@
 ## 目录
 - PDE的分类型
 - 二阶PDE的分类与标准型
-
+- 达朗贝尔公式
 ……
 
 LaTeX模板来自[Elegant Note](https://github.com/ElegantLaTeX/ElegantNote)
