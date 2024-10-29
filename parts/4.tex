@@ -11,9 +11,10 @@ u|_{t=0} = \varphi (x), \quad u_t|_{t=0} = \psi (x), \quad x \in R.
 \right.
 \]
 
-非齐次可以转化为齐次+非齐次
+解设为$u$
+非齐次可以转化为齐次+非齐次，则$u=u_1+u_2$
 
-\textbf{齐次}
+\textbf{齐次，解为$u_1$}
 
 \[
 \left\{
@@ -24,7 +25,7 @@ u|_{t=0} = \varphi (x), \quad u_t|_{t=0} = \psi (x), \quad x \in R.
 \right.
 \]
 
-\textbf{非齐次}
+\textbf{非齐次，解为$u_2$}
 
 \[
 \left\{
@@ -43,6 +44,70 @@ u|_{t=0} = 0, \quad u_t|_{t=0} = 0, \quad x \in R.
 u(x, t) = \frac{1}{2} \left[ \varphi (x - at) + \varphi (x + at) \right] + \frac{1}{2a} \int_{x - at}^{x + at} \psi (\tau ) \, d\tau 
 \]
 
+\[
+\left\{
+\begin{aligned}
+u_{tt} - a^2 u_{xx} = 0, \quad x \in R, \quad t > 0, \\
+u|_{t=0} = \varphi (x), \quad u_t|_{t=0} = \psi (x), \quad x \in R.
+\end{aligned}
+\right.
+\]
+
+\[
+\varphi (x) = 
+\left\{
+\begin{aligned}
+\varphi (x), \quad x \geq 0, \\
+-\varphi (-x), \quad x < 0.
+\end{aligned}
+\right.
+\quad
+\psi (x) = 
+\left\{
+\begin{aligned}
+\psi (x), \quad x \geq 0, \\
+-\psi (-x), \quad x < 0.
+\end{aligned}
+\right.
+\]
+
+则$x \geq at$时
+
+\[
+u(x, t) = \frac{1}{2} \left[ \varphi (x + at) + \varphi (x - at) \right] + \frac{1}{2a} \int_{x - at}^{x + at} \psi (\tau ) \, d\tau 
+\]
+
+则$x < at$时
+
+\[
+u(x, t) = \frac{1}{2} \left[ \varphi (x + at) - \varphi (at - x) \right] + \frac{1}{2a} \int_{at - x}^{x + at} \psi (\tau ) \, d\tau 
+\]
+
 \subsubsection{非齐次求解}
 
 \textbf{齐次化原理}
+
+\[
+\left\{
+\begin{aligned}
+\omega_{tt} - a^2 \omega_{xx} = 0, \quad t > \tau, \\
+\omega|_{t=\tau} = 0, \quad \omega_t|_{t=\tau} = f(x,\tau).
+\end{aligned}
+\right.
+\]
+
+令$t'=t-\tau$，则：
+
+\[
+\omega(x,t,\tau)=\frac{1}{2a} \int_{x-a(t-\tau)}^{x+a(t-\tau)}f(\xi,\tau) \, d\xi
+\]
+
+\[
+u_2=\int_{0}^{t}\omega(x,t,\tau)\,d\tau = \frac{1}{2a} \int_{0}^{t} \int_{x-a(t-\tau)}^{x+a(t-\tau)}f(\xi,\tau) \, d\tau d\xi
+\]
+
+\subsubsection{原式求解}
+
+\[
+u=u_1+u_2=\frac{1}{2} \left[ \varphi (x - at) + \varphi (x + at) \right] + \frac{1}{2a} \int_{x - at}^{x + at} \psi (\tau ) \, d\tau + \frac{1}{2a} \int_{0}^{t} \int_{x-a(t-\tau)}^{x+a(t-\tau)}f(\xi,\tau) \, d\tau d\xi
+\]
