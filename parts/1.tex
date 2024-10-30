@@ -3,7 +3,6 @@
 \subsection{线性偏微分方程（Linear PDEs）}
 \textbf{定义}：未知函数 \(u\) 及其各阶导数在方程中线性出现，且没有乘积或非线性项。  
 
-\textbf{线性条件}：
 \begin{itemize}
     \item \textbf{未知函数及其导数的指数为 1}：
     \[
@@ -47,10 +46,3 @@ u_t + u u_x = 0,
 
 \subsection{完全非线性偏微分方程（Fully Nonlinear PDEs）}
 \textbf{定义}：最高阶导数本身非线性出现，无法写成线性或拟线性形式。
-
-\textbf{示例}：
-\begin{equation}
-\det\left(D^2 u\right) = f(x),
-\end{equation}
-这是 Monge-Ampère 方程，其中 \(D^2 u\) 是 \(u\) 的 Hessian 矩阵。\\
-最高阶是偏导数*偏导数，就是完全非线性
