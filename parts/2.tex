@@ -1,80 +1,21 @@
 \section{二阶 PDE 的分类}
 
-\subsection{二阶 PDE 的一般形式}
+\subsection{特征线与特征方程}
 \[
 a u_{xx} + 2b u_{xy} + c u_{yy} + d u_x + e u_y + g u = f
 \]
 
-- \textbf{判别式}：$\Delta = b^2 - ac$
-  - \textbf{椭圆型}：$\Delta < 0$
-  - \textbf{抛物型}：$\Delta = 0$
-  - \textbf{双曲型}：$\Delta > 0$
-
-\subsection{特征曲线与特征方程}
-
 \[
-a (dy)^2 - 2b (dx)(dy) + c (dx)^2 = 0
-\]
-这是一个关于 $dy/dx$ 的二次方程。我们解这个方程得到特征曲线的斜率。特征方程的两个解为：
-\[
-\lambda_1 = \frac{b + \sqrt{b^2 - ac}}{a}, \quad \lambda_2 = \frac{b - \sqrt{b^2 - ac}}{a}
-\]
-对应的特征曲线方程为：
-\[
-y - \lambda_1 x = c_1, \quad y - \lambda_2 x = c_2
+a \, u_{xx} + 2b \, u_{xy} + c \, u_{yy} + \cdots = 0 \rightarrow a \left( \frac{dy}{dx} \right)^2 - 2b \frac{dy}{dx} + c = 0
 \]
 
-- \textbf{双曲型方程}会有两个特征方向。
-- \textbf{抛物型方程}会有一个退化特征方向。
-- \textbf{椭圆型方程}没有实特征方向。
-
-\subsection{各类型二阶 PDE 的标准型}
-
-\subsubsection{椭圆型 PDE}
+定义 $\Delta = b^2 - ac$，根据 $\Delta$ 的取值，可以将方程分类为：
 \begin{itemize}
-    \item \textbf{判别式}：$\Delta = B^2 - AC < 0$  
-    \item \textbf{特征曲线}：无实特征方向。  
-    \item \textbf{第一标准型}：
-    \[
-    u_{\xi \xi} + u_{\eta \eta} = 0
-    \]
-    其中 $\xi$ 和 $\eta$ 是通过坐标变换得到的新变量。
-    \item \textbf{典型方程}：$\Delta u = 0$（拉普拉斯方程）
+    \item $\Delta > 0$：双曲型，存在两条实特征线，为波动方程
+    \item $\Delta = 0$：抛物型，存在一条实特征线，为热传导方程
+    \item $\Delta < 0$：椭圆型，不存在实特征线，为调和方程
 \end{itemize}
 
-\subsubsection{抛物型 PDE}
-\begin{itemize}
-    \item \textbf{判别式}：$\Delta = B^2 - AC = 0$  
-    \item \textbf{特征曲线}：只有一个实特征方向。  
-    \item \textbf{第一标准型}：
-    \[
-    u_{\xi \xi} = u_{\eta}
-    \]
-    这里 $\xi$ 是特征方向。
-    \item \textbf{典型方程}：$u_t = u_{xx}$（热传导方程）
-\end{itemize}
-
-\subsubsection{双曲型 PDE}
-\begin{itemize}
-    \item \textbf{判别式}：$\Delta = B^2 - AC > 0$  
-    \item \textbf{特征曲线}：有两个实特征方向。  
-    \item \textbf{特征曲线方程}：
-    \[
-    y - \lambda_1 x = c_1, \quad y - \lambda_2 x = c_2
-    \]
-    这表明解沿两个特征方向传播。
-    \item \textbf{第一标准型}：
-    \[
-    u_{\xi \eta} = D u_{\xi} + E u_{\eta}
-    \]
-    其中 $\xi$ 和 $\eta$ 是两个特征方向。
-    \item \textbf{第二标准型}：
-    \[
-    u_{tt} - c^2 u_{xx} = 0
-    \]
-    这是双曲型 PDE 的另一种表达方式。
-    \item \textbf{典型方程}：$u_{tt} = u_{xx}$（波动方程）
-\end{itemize}
 
 \subsection{解法}
 

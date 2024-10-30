@@ -1,0 +1,44 @@
+\section{依赖区域、决定区域、影响区域}
+
+\subsection{一维波动方程的依赖区域、决定区域、影响区域}
+
+\subsubsection{依赖区域}
+对于点 $(x_0, t_0)$ 的依赖区域为：
+\[
+[x_0 - at_0, x_0 + at_0]
+\]
+\[
+u(x_0, t_0) = u(A) + u(C) = u(B) + u(D)
+\]
+
+\subsubsection{决定区域}
+区间 $[x_0, x_1]$ 的决定区域为：
+\[
+\{ (x, t) \mid x_0 + at \leq x \leq x_1 - at, \; t \geq 0 \}
+\]
+
+\subsubsection{影响区域}
+区间 $[x_1, x_2]$ 的影响区域为：
+\[
+\{ (x, t) \mid x_1 - at \leq x \leq x_2 + at, \; t \geq 0 \}
+\]
+
+\subsection{三维波动方程的依赖区域、决定区域、影响区域}
+
+\subsubsection{依赖区域}
+对于 $(x, y, t) \in R^3$，点 $(x_0, y_0, t_0)$ 的依赖区域为：
+\[
+\Omega = \{ (x, y, 0) \mid (x - x_0)^2 + (y - y_0)^2 \leq a^2 t_0^2 \}
+\]
+
+\subsubsection{决定区域}
+区域 $\Omega$ 的决定区域为：
+\[
+\Omega' = \{ (x, y, t) \mid (x - x_0)^2 + (y - y_0)^2 \leq a^2(t + t_0)^2, \; 0 \leq t \leq t_0 \}
+\]
+
+\subsubsection{影响区域}
+点 $(x_0, y_0, z)$ 的影响区域为：
+\[
+\Omega'' = \{ (x, y, t) \mid (x - x_0)^2 + (y - y_0)^2 \leq a^2 t^2, \; t > 0 \}
+\]
