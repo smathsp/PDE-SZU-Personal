@@ -11,54 +11,137 @@ a \, u_{xx} + 2b \, u_{xy} + c \, u_{yy} + \cdots = 0 \rightarrow a \left( \frac
 
 定义 $\Delta = b^2 - ac$，根据 $\Delta$ 的取值，可以将方程分类为：
 \begin{itemize}
-    \item $\Delta > 0$：双曲型，存在两条实特征线，为波动方程
-    \item $\Delta = 0$：抛物型，存在一条实特征线，为热传导方程
-    \item $\Delta < 0$：椭圆型，不存在实特征线，为调和方程
+    \item $\Delta > 0$：双曲型，存在两条实特征线，如波动方程
+    \item $\Delta = 0$：抛物型，存在一条实特征线，如热传导方程
+    \item $\Delta < 0$：椭圆型，不存在实特征线，如调和方程
 \end{itemize}
 
-
 \subsection{解法}
+首先找出 $a, b, c$ 的值，解出 $\Delta = b^2 - ac$。根据 $\Delta$ 分类讨论：
+\begin{itemize}
+    \item $\Delta > 0$：双曲型
+    \item $\Delta = 0$：抛物型
+    \item $\Delta < 0$：椭圆型
+\end{itemize}
 
-首先找出$a,b,c$解出$\Delta = b^2 - ac$根据$\Delta > 0$为双曲形，$\Delta = 0$为抛物形，$\Delta < 0$为椭圆形分类讨论
+得到 $\xi$ 和 $\eta$ 后，将 $x, y$ 的偏导数用 $\xi, \eta$ 表示以简化原方程。
 
-得到$\xi \eta$后计算偏导数替换原式所有$xy$即可
+\subsubsection{双曲型}
 
-\subsubsection{双曲形}
-
+特征值为：
 \[
 \pm \lambda = \frac{b \pm \sqrt{\Delta}}{a}
 \]
 
+特征变量：
 \[
 \left\{
 \begin{aligned}
-\xi &= y - \lambda_1 x \\
+\xi &= y - \lambda_1 x, \\
 \eta &= y - \lambda_2 x
 \end{aligned}
 \right.
 \]
 
-\subsubsection{抛物形}
+\subsubsection{抛物型}
 
+特征变量：
 \[
 \left\{
 \begin{aligned}
-\xi &= y - \frac{b}{a} x \\
+\xi &= y - \frac{b}{a} x, \\
 \eta &= y
 \end{aligned}
 \right.
 \]
 
-\subsubsection{椭圆形}
+\subsubsection{椭圆型}
 
+特征变量：
 \[
 \left\{
 \begin{aligned}
-\bar{\xi} &= y - \frac{b}{a} x \\
+\bar{\xi} &= y - \frac{b}{a} x, \\
 \bar{\eta} &= -\frac{ac-b^2}{a} x
 \end{aligned}
 \right.
 \]
+
+\subsection{例题：Tricomi 方程的标准化}
+
+已知方程 \( u_{yy} - y u_{xx} = 0 \)，要求将其化为标准型。
+
+给定：
+\[
+a = -1, \quad b = 0, \quad c = y
+\]
+\[
+\Delta = b^2 - ac = y
+\]
+
+\subsubsection*{(1) 当 \( y = 0 \) 时}
+此时方程为 \textbf{抛物型}，对应的标准型为：
+\[
+u_{yy} = 0
+\]
+
+\subsubsection*{(2) 当 \( y > 0 \) 时}
+此时方程为 \textbf{双曲型}，特征方程为：
+\[
+y \left( \frac{dy}{dx} \right)^2 = 1, \quad \frac{dy}{dx} = \pm y^{-\frac{1}{2}}
+\]
+
+两条实特征线为：
+\[
+3x + 2 y^{\frac{3}{2}} = c_1, \quad 3x - 2 y^{\frac{3}{2}} = c_2
+\]
+
+定义新变量：
+\[
+\xi = 3x + 2 y^{\frac{3}{2}}, \quad \eta = 3x - 2 y^{\frac{3}{2}}
+\]
+
+对于双曲型方程，原方程中的偏导数可以按以下方式转化：
+
+\[
+u_x = 3 (u_{\xi} + u_{\eta}), \quad u_y = 3 y^{\frac{1}{2}} ( u_{\xi} - u_{\eta} )
+\]
+
+\[
+u_{xx} = 9 u_{\xi \xi} + 9 u_{\eta \eta} + 18 u_{\xi \eta} \quad u_{yy} = \frac{3}{2} y^{-\frac{1}{2}} (u_{\xi} - u_{\eta}) + y u_{\xi \eta}
+\]
+
+代入原方程，简化后得到：
+\[
+u_{\xi \eta} - \frac{1}{6} \frac{u_{\xi} - u_{\eta}}{\xi - \eta} = 0
+\]
+
+\subsubsection*{(3) 当 \( y < 0 \) 时}
+此时方程为 \textbf{椭圆型}。特征方程为：
+\[
+\left( \frac{dy}{dx} \right)^2 = \frac{1}{-y}, \quad \frac{dy}{dx} = \pm i \sqrt{\frac{1}{-y}}
+\]
+
+定义新变量：
+\[
+\xi = x, \quad \eta = \frac{2}{3} (-y)^{\frac{3}{2}}
+\]
+
+对于椭圆型方程，原方程中的偏导数可以按以下方式转化：
+
+\[
+u_x = u_{\xi} , \quad u_y = - (-y)^{\frac{1}{2}} u_{\eta}
+\]
+
+\[
+u_{xx} = u_{\xi \xi} , \quad u_{yy} = \frac{1}{2}(-y)^{\frac{1}{2}} u_{\eta} + (-y)u_{\eta \eta}
+\]
+
+最终化简得到标准化形式：
+\[
+u_{\xi \xi} + u_{\eta \eta} + \frac{1}{3\eta}u_{\eta} = 0
+\]
+
 
 \subsection{例题}
 判断以下偏微分方程的类型，并将其化为标准型
@@ -80,7 +163,7 @@ a = 1, \quad b = 0, \quad c = -y
 
 分类讨论：
 
-\textbf{当 $y > 0$（双曲形）}
+\textbf{当 $y > 0$（双曲型）}
 
 \[
 \frac{dy}{dx} = \pm \sqrt{y}
@@ -119,16 +202,16 @@ u_{yy} &= -\frac{1}{2} y^{- \frac{3}{2}} u_{\xi} + \frac{1}{2} y^{-\frac{3}{2}} 
 \right.
 \]
 
-带入原式化简得到
+带入原式化简得到：
 
 \[
 \frac{1}{2} y^{-\frac{1}{2}} (u_{\xi} - u_{\eta}) = 0
 \]
 
-由于\(\xi - \eta = 4y^{-\frac{1}{2}}\)，带入得到：
+由于 $\xi - \eta = 4y^{-\frac{1}{2}}$，带入得到：
 
 \[
 \frac{2}{\xi - \eta} (u_{\xi} - u_{\eta}) = 0
 \]
 
-\textbf{当 $y = 0$（抛物形）}
+\textbf{当 $y = 0$（抛物型）}

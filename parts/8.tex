@@ -1,0 +1,47 @@
+\section{傅里叶变换}
+
+\subsection{定义}
+\begin{itemize}
+    \item 若 $f(x)$ 的傅里叶变换记为 $\hat{f}(\xi)$ 或 $(f(x))^{\wedge}$，则定义为：
+    \[
+    \hat{f}(\xi) = \mathcal{F}[f(x)] = (2\pi)^{-\frac{n}{2}} \int_{-\infty}^{\infty} f(x) e^{-ix \cdot \xi} \, dx
+    \]
+    \item 其傅里叶逆变换为：
+    \[
+    (g(\xi))^{\vee} = (2\pi)^{-\frac{n}{2}} \int_{-\infty}^{\infty} g(\xi) e^{ix \cdot \xi} \, d\xi
+    \]
+\end{itemize}
+
+\subsection{性质}
+
+线性：$(af + bg)^{\wedge} = a \hat{f} + b \hat{g}$
+
+平移：$(f(x - \alpha))^{\wedge} = e^{-i \alpha \cdot \xi} \hat{f}(\xi)$
+
+对称性：$(f(x))^{\vee} = \hat{f}(-\xi)$
+
+微分：$[f^{(m)}(x)]^{\wedge} = (i \xi)^m \hat{f}(\xi)$
+
+多项式：$[x^m f(x)]^{\wedge} = i^m \frac{d^m}{d \xi^m} \hat{f}(\xi)$
+
+伸缩性：$[f(kx)]^{\wedge} = \frac{1}{|k|^n} \hat{f} \left( \frac{\xi}{k} \right)$
+
+卷积性质：$(f * g)^{\wedge}  = (2\pi)^{\frac{n}{2}} \hat{f}(\xi) \hat{g}(\xi)$
+
+
+其中，卷积 $(f * g)(x)$ 定义为：
+\[
+(f * g)(x) = \int_{R^n} f(x - y) g(y) \, dy = \int_{R^n} f(y) g(x - y) \, dy
+\]
+
+\subsection{例子}
+1. 对于 $e^{-A|x|}$，其傅里叶变换为：
+   \[
+   \mathcal{F}\left( e^{-A|x|} \right) = \sqrt{\frac{2}{\pi}} \frac{a}{\alpha^2 + \xi^2} \quad (n=1, \text{Poisson 核})
+   \]
+
+2. 对于 Gauss 核 $e^{-Ax^2}$，其傅里叶变换为：
+   \[
+   \mathcal{F}\left( e^{-Ax^2} \right) = (2A)^{-\frac{1}{2}} e^{-\frac{\xi^2}{4A}}
+   \]
+   其中 $A = \frac{1}{2}$ 时，$\mathcal{F}\left( e^{-\frac{x^2}{2}} \right) = e^{-\frac{\xi^2}{2}}$，这是傅里叶变换不动点。

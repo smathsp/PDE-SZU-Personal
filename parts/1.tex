@@ -1,6 +1,6 @@
 \section{偏微分方程的类型}
 
-\subsection{线性偏微分方程（Linear PDEs）}
+\subsection{线性偏微分方程}
 \textbf{定义}：未知函数 \(u\) 及其各阶导数在方程中线性出现，且没有乘积或非线性项。  
 
 \begin{itemize}
@@ -25,7 +25,7 @@
     是非线性的。
 \end{itemize}
 
-\subsection{半线性偏微分方程（Semilinear PDEs）}
+\subsection{半线性偏微分方程}
 \textbf{定义}：最高阶导数线性出现，但非线性项涉及未知函数或其较低阶导数。
 
 \textbf{示例}：
@@ -34,15 +34,15 @@
 \end{equation}
 非线性项 \(u^3\) 只涉及未知函数。
 
-\subsection{拟线性偏微分方程（Quasilinear PDEs）}
+\subsection{拟线性偏微分方程}
 \textbf{定义}：最高阶导数线性出现，但系数可能依赖于未知函数或其较低阶导数。
 
 \textbf{示例}：
 \begin{equation}
 u_t + u u_x = 0,
 \end{equation}
-这是无粘性伯格斯方程，最高阶导数项的系数依赖于 \(u\) \\
-拟线性只能是 \(u u_{...}\) (u*偏导数)
+这是无粘性伯格斯方程，最高阶导数项的系数依赖于 \(u\)。  
+拟线性方程中，最高阶导数的非线性项必须是形式如 \(u \cdot \frac{\partial u}{\partial x}\) 的乘积。
 
-\subsection{完全非线性偏微分方程（Fully Nonlinear PDEs）}
+\subsection{完全非线性偏微分方程}
 \textbf{定义}：最高阶导数本身非线性出现，无法写成线性或拟线性形式。

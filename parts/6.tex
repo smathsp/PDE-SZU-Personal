@@ -1,25 +1,25 @@
 \section{三维波动方程的径向解}
 
-\numberwithin{equation}{section}
-
 考虑三维波动方程：
 
 \[
 \begin{cases}
-u_{tt} - a^2(u_{xx} + u_{yy} + u_{zz}) = 0, & (x, y, z) \in R^3, \, t > 0 \\
-u|_{t=0} = \varphi(x), \quad u_t|_{t=0} = \psi(x), & (x, y, z) \in R^3
+u_{tt} - a^2 (u_{xx} + u_{yy} + u_{zz}) = 0, & (x, y, z) \in R^3, \, t > 0, \\[5pt]
+u|_{t=0} = \varphi(r), \quad u_t|_{t=0} = \psi(r), & (x, y, z) \in R^3
 \end{cases}
 \]
 
-引入球坐标，设 $u(x, y, z, t) = u(r, t)$，其中 $r = \sqrt{x_1^2 + x_2^2 + x_3^2}$，有
-$$
-u_{x_i} = u_r \frac{x_i}{r}, \quad u_{x_ix_i} = u_{rr} r_{x_i}^2 + u_r \frac{r^2 - x_i \frac{x_i}{r}}{r^3} = u_{rr} \frac{x_i^2}{r^2} + u_r \left( \frac{1}{r} - \frac{x_i^2}{r^3} \right)
-$$
+引入球坐标，设 $u(x, y, z, t) = u(r, t)$，其中 $r = \sqrt{x_1^2 + x_2^2 + x_3^2}$.
 
-因此，
-$$
-\Delta u = \sum_{i=1}^3 u_{x_ix_i} = \sum_{i=1}^3 \left[ u_{rr} \frac{x_i^2}{r^2} + u_r \left( \frac{1}{r} - \frac{x_i^2}{r^3} \right) \right] = u_{rr} + \frac{2}{r} u_r
-$$
+在球坐标系中，三维拉普拉斯算子 \( \Delta u \) 表示为：
+\[
+\Delta u = u_{rr} + \frac{2}{r} u_r
+\]
+
+因此，波动方程可以转化为：
+\[
+u_{tt} - a^2 \left( u_{rr} + \frac{2}{r} u_r \right) = 0
+\]
 
 令 $w(r, t) = r u(r, t)$，则原方程可化为：
 
@@ -32,20 +32,22 @@ w|_{t=0} = r \varphi(r), \quad w_t|_{t=0} = r \psi(r), & r > 0
 
 解为：
 
-1. 当 $r \geq at$ 时，
+1. 当 \( r \geq at \) 时，
    \[
    w(r, t) = \frac{1}{2} \left[ (r+at) \varphi(r+at) + (r-at) \varphi(r-at) \right] + \frac{1}{2a} \int_{r-at}^{r+at} \psi(\xi) \, d\xi
    \]
 
+   因此，
    \[
    u(r, t) = \frac{1}{2r} \left[ (r+at) \varphi(r+at) + (r-at) \varphi(r-at) \right] + \frac{1}{2ar} \int_{r-at}^{r+at} \psi(\xi) \, d\xi
    \]
 
-2. 当 $r < at$ 时，
+2. 当 \( r < at \) 时，
    \[
    w(r, t) = \frac{1}{2} \left[ (r+at) \varphi(r+at) + (r-at) \varphi(at - r) \right] + \frac{1}{2a} \int_{at - r}^{r+at} \psi(\xi) \, d\xi
    \]
 
+   因此，
    \[
    u(r, t) = \frac{1}{2r} \left[ (r+at) \varphi(r+at) + (r-at) \varphi(at - r) \right] + \frac{1}{2ar} \int_{at - r}^{r+at} \psi(\xi) \, d\xi
    \]

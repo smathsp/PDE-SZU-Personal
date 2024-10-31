@@ -2,26 +2,89 @@
 
 \subsection{一维波动方程的依赖区域、决定区域、影响区域}
 
+\[
+u(A) + u(C) = u(B) + u(D)
+\]
+
 \subsubsection{依赖区域}
+
 对于点 $(x_0, t_0)$ 的依赖区域为：
+
 \[
 [x_0 - at_0, x_0 + at_0]
 \]
-\[
-u(x_0, t_0) = u(A) + u(C) = u(B) + u(D)
-\]
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+        % 坐标轴
+        \draw[->] (-0.5, 0) -- (4, 0) node[right] {$x$};
+        \draw[->] (0, -0.5) -- (0, 3) node[above] {$t$};
+        
+        % 三角形
+        \draw (1, 0) -- (3, 0) -- (2, 2) -- cycle;
+        
+        % 点标记
+        \node at (2, 2.5) {$(x_0, t_0)$};
+        \node at (1, -0.3) {$x_0 - a t_0$};
+        \node at (3, -0.3) {$x_0 + a t_0$};
+        
+    \end{tikzpicture}
+\end{figure}
 
 \subsubsection{决定区域}
+
 区间 $[x_0, x_1]$ 的决定区域为：
+
 \[
-\{ (x, t) \mid x_0 + at \leq x \leq x_1 - at, \; t \geq 0 \}
+\{ (x, t) \mid x_0 + at \leq x \leq x_1 - at, \; t > 0 \}
 \]
 
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+        % 坐标轴
+        \draw[->] (-0.5, 0) -- (4, 0) node[right] {$x$};
+        \draw[->] (0, -0.5) -- (0, 3) node[above] {$t$};
+        
+        % 三角形
+        \draw (1, 0) -- (3, 0) -- (2, 2) -- cycle;
+        
+        % 点标记
+        \node at (0, 1) {$x-at=x_0$};
+        \node at (4, 1) {$x+at=x_1$};
+        \node at (1, -0.3) {$x_0$};
+        \node at (3, -0.3) {$x_1$};
+        
+    \end{tikzpicture}
+\end{figure}
+
 \subsubsection{影响区域}
+
 区间 $[x_1, x_2]$ 的影响区域为：
+
 \[
-\{ (x, t) \mid x_1 - at \leq x \leq x_2 + at, \; t \geq 0 \}
+\{ (x, t) \mid x_1 - at \leq x \leq x_2 + at, \; t > 0 \}
 \]
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+        % 坐标轴
+        \draw[->] (-0.5, 0) -- (5, 0) node[right] {$x$};
+        \draw[->] (0, -0.5) -- (0, 3) node[above] {$t$};
+        
+        % 三角形区域
+        \draw (2, 0) -- (1, 2);
+        \draw (3, 0) -- (4, 2);
+
+        % 点标记
+        \node at (2, -0.3) {$x_1$};
+        \node at (3, -0.3) {$x_2$};
+        \node at (0, 1) {$x+at=x_1$};
+        \node at (5, 1) {$x-at=x_2$};
+    \end{tikzpicture}
+\end{figure}    
 
 \subsection{三维波动方程的依赖区域、决定区域、影响区域}
 
@@ -34,7 +97,7 @@ u(x_0, t_0) = u(A) + u(C) = u(B) + u(D)
 \subsubsection{决定区域}
 区域 $\Omega$ 的决定区域为：
 \[
-\Omega' = \{ (x, y, t) \mid (x - x_0)^2 + (y - y_0)^2 \leq a^2(t + t_0)^2, \; 0 \leq t \leq t_0 \}
+\Omega' = \{ (x, y, t) \mid (x - x_0)^2 + (y - y_0)^2 \leq a^2(t - t_0)^2, \; 0 \leq t \leq t_0 \}
 \]
 
 \subsubsection{影响区域}
